@@ -1,0 +1,39 @@
+﻿@model IEnumerable<BancoBadalada.Models.TbCurso>
+@{
+    ViewData["Title"] = "Cursos";
+}
+
+<h1>Cursos</h1>
+<p>
+    <a asp-action="Criar">Novo Curso</a>
+</p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.IdCurso)</th>
+            <th>@Html.DisplayNameFor(model => model.DsCurso)</th>
+            <th>@Html.DisplayNameFor(model => model.Categoria)</th>
+            <th>@Html.DisplayNameFor(model => model.Duracao)</th>
+            <th>@Html.DisplayNameFor(model => model.FgAtivo)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.IdCurso)</td>
+                <td>@Html.DisplayFor(modelItem => item.DsCurso)</td>
+                <td>@Html.DisplayFor(modelItem => item.Categoria)</td>
+                <td>@Html.DisplayFor(modelItem => item.Duracao)</td>
+                <td>@Html.DisplayFor(modelItem => item.FgAtivo)</td>
+                <td>
+                    <a asp-action="Editar" asp-route-id="">Editar</a> |
+                    <a asp-action="Remover" asp-route-id="">Remover</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

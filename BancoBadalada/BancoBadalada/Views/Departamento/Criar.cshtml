@@ -1,0 +1,29 @@
+﻿@model BancoBadalada.Models.TbDepartamento
+@{
+    ViewData["Title"] = "Criar Departamento";
+}
+
+<div>
+    <form asp-action="Criar">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div>
+            <input type="hidden" asp-for="IdDepartamento" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="NmDepartamento" class="form-label">Nome</label>
+            <input type="text" class="form-control" asp-for="NmDepartamento">
+        </div>
+        <div class="mb-3">
+            <label asp-for="IdGerente" class="form-label">Id Gerente</label>
+            <input type="text" class="form-control" asp-for="IdGerente">
+        </div>
+        <div class="mb-3">
+            <label asp-for="Localizacao" class="form-label">Localização</label>
+            <input type="text" class="form-control" asp-for="Localizacao">
+        </div>
+        <input type="submit" class="btn btn-primary" value="Criar" />
+    </form>
+    <a class="btn btn-secondary" asp-action="Index">Voltar</a>
+</div>
+
+
