@@ -1,0 +1,30 @@
+﻿@model BancoBadalada.Models.TbCurso
+@{
+    ViewData["Title"] = "Criar Curso";
+}
+
+<div>
+    <form asp-action="Criar">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="mb-3">
+            <label asp-for="IdCurso" class="form-label">Id do Curso</label>
+            <input type="text" maxlength="3" class="form-control" asp-for="IdCurso">
+        </div>
+        <div class="mb-3">
+            <label asp-for="DsCurso" class="form-label">Descrição</label>
+            <input type="text" class="form-control" asp-for="DsCurso">
+        </div>
+        <div class="mb-3">
+            <label asp-for="Categoria" class="form-label">Categoria</label>
+            <input type="text" class="form-control" asp-for="Categoria">
+        </div>
+        <div class="mb-3">
+            <label asp-for="Duracao" class="form-label">Duração</label>
+            <input type="text" class="form-control" asp-for="Duracao">
+        </div>
+        <input type="submit" class="btn btn-primary" value="Criar" />
+    </form>
+    <a class="btn btn-secondary" asp-action="Index">Voltar</a>
+</div>
+
+

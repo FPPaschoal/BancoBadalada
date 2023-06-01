@@ -41,7 +41,7 @@ namespace BancoBadalada.Services
 
         public int GetNextId()
         {
-            return 1; //_academicoContext.TbCursos.OrderBy(m => m.IdCurso).Reverse().FirstOrDefault(). + 10;
+            return 1;
         }
 
     }
