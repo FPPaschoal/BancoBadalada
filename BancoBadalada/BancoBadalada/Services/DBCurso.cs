@@ -2,7 +2,7 @@
 
 namespace BancoBadalada.Services
 {
-    public class DBCurso : IDBContextCursos
+    public class DBCurso : IDBContextCurso
     {
 
         public readonly AcademicoContext _academicoContext;

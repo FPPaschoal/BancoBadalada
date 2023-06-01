@@ -9,7 +9,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AcademicoContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionBadalada")));
 
 builder.Services.AddScoped<IDBContextDepartamento, DBDepartamento>();
-//builder.Services.AddScoped<IDBContextCursos, DBCurso>();
+builder.Services.AddScoped<IDBContextCurso, DBCurso>();
 
 var app = builder.Build();
 

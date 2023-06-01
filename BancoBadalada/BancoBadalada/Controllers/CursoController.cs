@@ -1,12 +1,19 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BancoBadalada.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BancoBadalada.Controllers
 {
     public class CursoController : Controller
     {
-        public IActionResult Index()
+        private readonly IDBContextCurso _service;
+
+        public CursoController(IDBContextCurso service)
         {
-            return View();
+            _service = service;
+        }
+        public IActionResult index()
+        {
+            return View(_service.FindAll());
         }
     }
 }

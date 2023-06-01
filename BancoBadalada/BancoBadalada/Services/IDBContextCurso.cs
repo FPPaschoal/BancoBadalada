@@ -2,7 +2,7 @@
 
 namespace BancoBadalada.Services
 {
-    public interface IDBContextCursos : IServices<TbCurso>
+    public interface IDBContextCurso : IServices<TbCurso>
     {
         public ICollection<TbCurso> FindAll();
 
