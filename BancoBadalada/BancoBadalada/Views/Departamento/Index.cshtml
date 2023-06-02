@@ -31,7 +31,8 @@
                 <td>@Html.DisplayFor(modelItem => item.FgAtivo)</td>
             <td>
             <a asp-action="Editar" asp-route-id="">Editar</a> |
-            <a asp-action="Remover" asp-route-id="">Remover</a>
+            <a asp-action="Remover" asp-route-id="">Remover</a> |
+            <a asp-controller="EmpregadoController" asp-action="Index" asp-route-id="@item.IdDepartamento">Empregados</a>
             </td>
             </tr>
         }
