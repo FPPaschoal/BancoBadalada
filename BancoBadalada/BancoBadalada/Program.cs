@@ -10,6 +10,7 @@ builder.Services.AddDbContext<AcademicoContext>(options => options.UseSqlServer(
 
 builder.Services.AddScoped<IDBContextDepartamento, DBDepartamento>();
 builder.Services.AddScoped<IDBContextCurso, DBCurso>();
+builder.Services.AddScoped<IDBContextEmpregado, DBEmpregado>();
 
 var app = builder.Build();
 
