@@ -1,4 +1,4 @@
-﻿@model BancoBadalada.Models.TbEmpregado
+﻿@model BancoBadalada.Models.EmpregadoHistoricoVM
 @{
     ViewData["Title"] = "Criar Empregado";
 }
@@ -7,31 +7,47 @@
     <form asp-action="Criar">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div>
-            <input type="hidden" asp-for="IdEmpregado" />
+            <input type="hidden" asp-for="Empregado.IdEmpregado" />
         </div>
         <div class="mb-3">
-            <label asp-for="NmEmpregado" class="form-label">Nome</label>
-            <input type="text" class="form-control" asp-for="NmEmpregado">
+            <label asp-for="Empregado.NmEmpregado" class="form-label">Nome</label>
+            <input type="text" class="form-control" asp-for="Empregado.NmEmpregado">
         </div>
         <div class="mb-3">
-            <label asp-for="IniciaisEmpregado" class="form-label">Iniciais do Empregado</label>
-            <input type="text" class="form-control" asp-for="IniciaisEmpregado">
+            <label asp-for="Empregado.IniciaisEmpregado" class="form-label">Iniciais do Empregado</label>
+            <input type="text" class="form-control" asp-for="Empregado.IniciaisEmpregado">
         </div>
         <div class="mb-3">
-            <label asp-for="DsCargo" class="form-label">Descrição do cargo</label>
-            <input type="text" class="form-control" asp-for="DsCargo">
+            <label asp-for="Empregado.DsCargo" class="form-label">Descrição do cargo</label>
+            <input type="text" class="form-control" asp-for="Empregado.DsCargo">
         </div>
         <div class="mb-3">
-            <label asp-for="DtNascimento" class="form-label">Data de nascimento</label>
-            <input type="date" class="form-control" asp-for="DtNascimento">
+            <label asp-for="Empregado.DtNascimento" class="form-label">Data de nascimento</label>
+            <input type="date" class="form-control" asp-for="Empregado.DtNascimento">
         </div>
         <div class="mb-3">
-            <label asp-for="Salario" class="form-label">Salário</label>
-            <input type="numeric" min="0" class="form-control" asp-for="Salario">
+            <label asp-for="Empregado.Salario" class="form-label">Salário</label>
+            <input type="number" min="0" class="form-control" asp-for="Empregado.Salario">
         </div>
         <div class="mb-3">
-            <label asp-for="Comissao" class="form-label">Comissão</label>
-            <input type="number" min="0" class="form-control" asp-for="Comissao">
+            <label asp-for="Empregado.Comissao" class="form-label">Comissão</label>
+            <input type="number" min="0" class="form-control" asp-for="Empregado.Comissao">
+        </div>
+        <div class="mb-3">
+            <label asp-for="Historico.DtInicio" class="form-label">Data de Início</label>
+            <input type="date" class="form-control" asp-for="Historico.DtInicio">
+        </div>
+        <div class="mb-3">
+            <label asp-for="Historico.AnoInicio" class="form-label">Ano de Início</label>
+            <input type="number" step="1" min="0" class="form-control" asp-for="Historico.AnoInicio">
+        </div>
+        <div class="mb-3">
+            <label asp-for="Historico.DtFinal" class="form-label">Data de Saída</label>
+            <input type="date" class="form-control" asp-for="Historico.DtFinal">
+        </div>
+        <div class="mb-3">
+            <label asp-for="Historico.Comentarios" class="form-label">Comentários</label>
+            <input type="text" class="form-control" asp-for="Historico.Comentarios">
         </div>
         <input type="submit" class="btn btn-primary" value="Criar" />
     </form>

@@ -33,6 +33,10 @@ namespace BancoBadalada.Services
         {
             return _academicoContext.TbEmpregados.ToList();
         }
+        public ICollection<TbEmpregado> FindAll(int id)
+        {
+            return _academicoContext.TbEmpregados.Where(empregado => empregado.IdDepartamento == id).ToList();
+        } 
         public void Update(TbEmpregado services)
         {
             _academicoContext.TbEmpregados.Update(services);
@@ -41,7 +45,7 @@ namespace BancoBadalada.Services
 
         public int GetNextId()
         {
-            return _academicoContext.TbEmpregados.OrderBy(m => m.IdEmpregado).Reverse().FirstOrDefault().IdEmpregado + 1;
+            return _academicoContext.TbEmpregados.OrderBy(m => m.IdEmpregado).Reverse().FirstOrDefault()?.IdEmpregado + 1 ?? 1;
         }
 
     }
