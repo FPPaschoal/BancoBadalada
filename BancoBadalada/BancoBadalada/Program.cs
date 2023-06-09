@@ -3,7 +3,7 @@ using BancoBadalada.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-//AAAAA
+//BBBB
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AcademicoContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionBadalada")));
