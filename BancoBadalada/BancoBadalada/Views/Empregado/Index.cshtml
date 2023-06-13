@@ -38,7 +38,7 @@
                 <td>
                     <a asp-action="Editar" asp-route-id="">Editar</a> |
                     <a asp-action="Remover" asp-route-id="">Remover</a> |
-                    <a asp-controller="Matricula" asp-action="Index" asp-route-id="">Matriculas</a>
+                    <a asp-controller="Matricula" asp-action="Index" asp-route-id="@item.IdEmpregado">Matriculas</a>
                 </td>
             </tr>
         }
