@@ -1,0 +1,33 @@
+﻿@model BancoBadalada.Models.TbCursosOferecidos
+
+@{
+    ViewData["Title"] = "Oferecimento de Curso";
+}
+
+
+<div>
+    <form asp-action="Oferecer">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div>
+            <input type="hidden" asp-for="IdCurso"/>
+        </div>
+        <div class="mb-3">
+            <select class="form-select" asp-for="IdInstrutor" aria-label="ID do Instrutor">
+                <option selected>NULL</option>
+                <option value="7566">7566</option>
+                <option value="7876">7876</option>
+                <option value="7369">7369</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label asp-for="DtInicio" class="form-label">Data de início</label>
+            <input type="date" class="form-control" asp-for="DtInicio">
+        </div>
+        <div class="mb-3">
+            <label asp-for="Localizacao" class="form-label">Localização</label>
+            <input type="text" class="form-control" asp-for="Localizacao">
+        </div>
+        <input type="submit" class="btn btn-primary" value="Oferecer" />
+    </form>
+    <a class="btn btn-secondary" asp-controller="Curso" asp-action="Index">Voltar</a>
+</div>

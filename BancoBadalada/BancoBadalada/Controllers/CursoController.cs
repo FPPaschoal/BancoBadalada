@@ -26,8 +26,6 @@ namespace BancoBadalada.Controllers
         [AutoValidateAntiforgeryToken]
         public IActionResult Criar([Bind("IdCurso","DsCurso", "Categoria", "Duracao")] TbCurso Curso)
         {
-
-
             if (Char.IsDigit(Curso.DsCurso[0]))
             {
                 ModelState.AddModelError("NmDepartamento", "Nome não pode iniciar com dígito");
