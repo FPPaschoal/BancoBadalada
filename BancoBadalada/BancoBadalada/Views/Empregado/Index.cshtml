@@ -5,7 +5,7 @@
 
 <h1>Empregados</h1>
 <p>
-    <a asp-action="Criar" asp-route-id="@ViewBag.Aux">Novo Empregado</a>
+    <a asp-action="Criar" asp-route-id="@ViewBag.IdDepartamento">Novo Empregado</a>
 </p>
 
 
@@ -38,7 +38,7 @@
                 <td>
                     <a asp-action="Editar" asp-route-id="">Editar</a> |
                     <a asp-action="Remover" asp-route-id="">Remover</a> |
-                    <a asp-action="Remover" asp-route-id="">Matricular</a>
+                    <a asp-controller="Matricula" asp-action="Index" asp-route-id="">Matriculas</a>
                 </td>
             </tr>
         }

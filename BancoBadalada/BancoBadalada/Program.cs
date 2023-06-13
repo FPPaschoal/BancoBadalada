@@ -12,6 +12,7 @@ builder.Services.AddScoped<IDBContextDepartamento, DBDepartamento>();
 builder.Services.AddScoped<IDBContextCurso, DBCurso>();
 builder.Services.AddScoped<IDBContextEmpregado, DBEmpregado>();
 builder.Services.AddScoped<IDBContextHistorico , DBHistorico>();
+builder.Services.AddScoped<IDBContextCursosOferecidos , DBCursosOferecidos>();
 
 
 

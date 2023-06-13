@@ -8,7 +8,7 @@ namespace BancoBadalada.Models;
 
 [PrimaryKey("IdCurso", "DtInicio")]
 [Table("tb_cursos_oferecidos")]
-public partial class TbCursosOferecido
+public partial class TbCursosOferecidos
 {
     [Key]
     [Column("id_curso")]

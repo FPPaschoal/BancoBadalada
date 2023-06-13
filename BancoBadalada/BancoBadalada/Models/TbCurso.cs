@@ -32,5 +32,5 @@ public partial class TbCurso
     public bool? FgAtivo { get; set; }
 
     [InverseProperty("IdCursoNavigation")]
-    public virtual ICollection<TbCursosOferecido> TbCursosOferecidos { get; set; } = new List<TbCursosOferecido>();
+    public virtual ICollection<TbCursosOferecidos> TbCursosOferecidos { get; set; } = new List<TbCursosOferecidos>();
 }

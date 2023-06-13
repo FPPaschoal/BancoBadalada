@@ -54,7 +54,7 @@ public partial class TbEmpregado
     public virtual ICollection<TbEmpregado> InverseIdGerenteNavigation { get; set; } = new List<TbEmpregado>();
 
     [InverseProperty("IdInstrutorNavigation")]
-    public virtual ICollection<TbCursosOferecido> TbCursosOferecidos { get; set; } = new List<TbCursosOferecido>();
+    public virtual ICollection<TbCursosOferecidos> TbCursosOferecidos { get; set; } = new List<TbCursosOferecidos>();
 
     [InverseProperty("IdGerenteNavigation")]
     public virtual ICollection<TbDepartamento> TbDepartamentos { get; set; } = new List<TbDepartamento>();

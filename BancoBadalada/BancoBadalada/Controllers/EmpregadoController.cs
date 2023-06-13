@@ -17,13 +17,13 @@ namespace BancoBadalada.Controllers
         }
         public IActionResult Index(int id)
         {
-            ViewBag.Aux = id;
+            ViewBag.IdDepartamento = id;
             return View(_service.FindAll(id));
         }
 
         public IActionResult Criar(int id)
         {
-            ViewBag.Aux = id;
+            ViewBag.IdDepartamento = id;
             return View();
         }
 
@@ -38,7 +38,7 @@ namespace BancoBadalada.Controllers
             EmpHist.Historico.Salario = EmpHist.Empregado.Salario;
             _service.Create(EmpHist.Empregado);
             _serviceHistorico.Create(EmpHist.Historico);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { id = EmpHist.Empregado.IdDepartamento });
         }
 
     }

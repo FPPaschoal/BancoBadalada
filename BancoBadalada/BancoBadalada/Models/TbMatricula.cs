@@ -36,5 +36,5 @@ public partial class TbMatricula
 
     [ForeignKey("IdCurso, DtInicio")]
     [InverseProperty("TbMatriculas")]
-    public virtual TbCursosOferecido TbCursosOferecido { get; set; } = null!;
+    public virtual TbCursosOferecidos TbCursosOferecido { get; set; } = null!;
 }
