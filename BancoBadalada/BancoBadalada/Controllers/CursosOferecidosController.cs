@@ -27,6 +27,7 @@ namespace BancoBadalada.Controllers
         [AutoValidateAntiforgeryToken]
         public IActionResult Oferecer([Bind("IdCurso", "DtInicio", "IdInstrutor", "Localizacao")] TbCursosOferecidos cursosOferecidos)
         {
+
             cursosOferecidos.FgAtivo = true;
             _service.Create(cursosOferecidos);
             return RedirectToAction("Index");

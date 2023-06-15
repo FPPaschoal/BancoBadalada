@@ -1,6 +1,8 @@
 ﻿using BancoBadalada.Models;
 using BancoBadalada.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
+using System.Globalization;
 
 namespace BancoBadalada.Controllers
 {
@@ -19,16 +21,16 @@ namespace BancoBadalada.Controllers
             return View(_service.FindAll(id));
         }
 
-        public IActionResult Matricular(string idCurso,DateTime dtInicio)
+        public IActionResult Matricular(string idCurso,string dtInicio)
         {
-            ViewBag.idCurso = idCurso;
-            ViewBag.dtInicio = dtInicio;
-            return View(_serviceEmpregado.FindAll());
+            DateTime dt = DateTime.Parse(dtInicio);
+            ViewBag.Empregados = _serviceEmpregado.FindAll();
+            return View(new TbMatricula { DtInicio = dt, IdCurso = idCurso });
         }
 
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public IActionResult Matricular([Bind("idParticipante", "idCurso", "dtInicio")]TbMatricula matricula)
+        public IActionResult Matricular([Bind("IdParticipante", "IdCurso", "DtInicio")]TbMatricula matricula)
         {
             matricula.FgAtivo = true;
             _service.Create(matricula);

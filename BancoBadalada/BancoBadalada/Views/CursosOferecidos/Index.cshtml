@@ -27,8 +27,9 @@
                 <td>@Html.DisplayFor(modelItem => item.Localizacao)</td>
                 <td>@Html.DisplayFor(modelItem => item.FgAtivo)</td>
                 <td>
+                    
                     <a asp-action="Editar" asp-route-id="">Editar</a> |
-                    <a asp-controller="Matricula" asp-action="Matricular" asp-route-id="@item.IdCurso" asp-route-dtInicio="@item.DtInicio">Matricular Aluno</a> |
+                    <a asp-controller="Matricula" asp-action="Matricular" asp-route-idCurso="@item.IdCurso" asp-route-dtInicio="@item.DtInicio">Matricular Aluno</a> |
                     <a asp-action="Desativar" asp-route-id="">Desativar</a>
                 </td>
             </tr>
