@@ -5,7 +5,8 @@
 
 <h1>Cursos</h1>
 <p>
-    <a asp-action="Criar">Novo Curso</a>
+    <a asp-action="Criar">Novo Curso</a> |
+    <a asp-controller="CursosOferecidos" asp-action="Index">Cursos Oferecidos</a> 
 </p>
 
 
@@ -31,7 +32,8 @@
                 <td>@Html.DisplayFor(modelItem => item.FgAtivo)</td>
                 <td>
                     <a asp-action="Editar" asp-route-id="">Editar</a> |
-                    <a asp-action="Remover" asp-route-id="">Remover</a>
+                    <a asp-action="Remover" asp-route-id="">Remover</a> |
+                    <a asp-controller="CursosOferecidos" asp-action="Oferecer" asp-route-id="@item.IdCurso">Oferecer</a> 
                 </td>
             </tr>
         }

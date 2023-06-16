@@ -14,7 +14,7 @@ public partial class AcademicoContext : DbContext
 
     public virtual DbSet<TbCurso> TbCursos { get; set; }
 
-    public virtual DbSet<TbCursosOferecido> TbCursosOferecidos { get; set; }
+    public virtual DbSet<TbCursosOferecidos> TbCursosOferecidos { get; set; }
 
     public virtual DbSet<TbDepartamento> TbDepartamentos { get; set; }
 
@@ -35,7 +35,7 @@ public partial class AcademicoContext : DbContext
             entity.Property(e => e.Categoria).IsFixedLength();
         });
 
-        modelBuilder.Entity<TbCursosOferecido>(entity =>
+        modelBuilder.Entity<TbCursosOferecidos>(entity =>
         {
             entity.HasKey(e => new { e.IdCurso, e.DtInicio }).HasName("pk_tb_cursos_oferecidos_");
 

@@ -1,13 +1,17 @@
 ﻿@model BancoBadalada.Models.EmpregadoHistoricoVM
 @{
     ViewData["Title"] = "Criar Empregado";
+    var deptoId = ViewBag.IdDepartamento;
 }
+
 
 <div>
     <form asp-action="Criar">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div>
             <input type="hidden" asp-for="Empregado.IdEmpregado" />
+            <input type="hidden" asp-for="Empregado.IdDepartamento" value="@deptoId" />
+            <input type="hidden" asp-for="Historico.IdDepartamento" value="@deptoId" />
         </div>
         <div class="mb-3">
             <label asp-for="Empregado.NmEmpregado" class="form-label">Nome</label>

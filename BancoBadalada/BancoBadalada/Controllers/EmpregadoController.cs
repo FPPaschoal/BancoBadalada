@@ -9,8 +9,6 @@ namespace BancoBadalada.Controllers
 
         private readonly IDBContextEmpregado _service;
         private readonly IDBContextHistorico _serviceHistorico;
-            
-        int Aux;
 
         public EmpregadoController(IDBContextEmpregado service, IDBContextHistorico serviceHistorico)
         {
@@ -19,29 +17,28 @@ namespace BancoBadalada.Controllers
         }
         public IActionResult Index(int id)
         {
-            Aux = id;
+            ViewBag.IdDepartamento = id;
             return View(_service.FindAll(id));
         }
 
-        public IActionResult Criar()
+        public IActionResult Criar(int id)
         {
+            ViewBag.IdDepartamento = id;
             return View();
         }
 
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public IActionResult Criar([Bind ("Empregado.NmEmpregado", "Empregado.IniciaisEmpregado", "Empregado.DsCargo", "Empregado.DtNascimento", "Empregado.Salario", "Empregado.Comissao", "Historico.DtInicio", "Historico.AnoInicio", "Historico.DtFinal", "Historico.Comentarios")] EmpregadoHistoricoVM EmpHist)
+        public IActionResult Criar(EmpregadoHistoricoVM EmpHist)
         {
             EmpHist.Empregado.IdEmpregado = _service.GetNextId();
             EmpHist.Historico.IdEmpregado = EmpHist.Empregado.IdEmpregado;
             EmpHist.Empregado.FgAtivo = true;
             EmpHist.Historico.FgAtivo = true;
-            EmpHist.Empregado.IdDepartamento = Aux;
-            EmpHist.Historico.IdDepartamento = Aux;
             EmpHist.Historico.Salario = EmpHist.Empregado.Salario;
             _service.Create(EmpHist.Empregado);
             _serviceHistorico.Create(EmpHist.Historico);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { id = EmpHist.Empregado.IdDepartamento });
         }
 
     }

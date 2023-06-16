@@ -13,10 +13,15 @@
             <label asp-for="NmDepartamento" class="form-label">Nome</label>
             <input type="text" class="form-control" asp-for="NmDepartamento">
         </div>
-        <div class="mb-3">
-            <label asp-for="IdGerente" class="form-label">Id Gerente</label>
-            <input type="text" class="form-control" asp-for="IdGerente">
-        </div>
+        <p>Id do Gerente</p>
+        <select class="form-select" aria-label="ID do Gerente" asp-for="IdGerente">
+            <option value="" selected>NULL</option>
+            @foreach (var p in ViewBag.empregados)
+            {
+                <option value="@p.IdEmpregado">@p.IdEmpregado | @p.NmEmpregado</option>
+            }
+        </select>
+        <br />
         <div class="mb-3">
             <label asp-for="Localizacao" class="form-label">Localização</label>
             <input type="text" class="form-control" asp-for="Localizacao">

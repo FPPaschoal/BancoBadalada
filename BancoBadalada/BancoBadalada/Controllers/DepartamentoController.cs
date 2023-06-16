@@ -7,10 +7,12 @@ namespace BancoBadalada.Controllers
     public class DepartamentoController : Controller
     {
         private readonly IDBContextDepartamento _service;
+        private readonly IDBContextEmpregado _empregado;
 
-        public DepartamentoController(IDBContextDepartamento service)
+        public DepartamentoController(IDBContextDepartamento service, IDBContextEmpregado empregado)
         {
             _service = service;
+            _empregado = empregado;
         }
 
         public IActionResult Index()
@@ -19,6 +21,7 @@ namespace BancoBadalada.Controllers
         }
         public IActionResult Criar()
         {
+            ViewBag.Empregados = _empregado.FindAll();
             return View();
         }
         [HttpPost]

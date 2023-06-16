@@ -1,0 +1,35 @@
+﻿@model IEnumerable<BancoBadalada.Models.TbMatricula>
+@{
+    ViewData["Title"] = "Matriculas do Participante";
+}
+
+<h1>Matriculas do Participante</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.IdParticipante)</th>
+            <th>@Html.DisplayNameFor(model => model.IdCurso)</th>
+            <th>@Html.DisplayNameFor(model => model.DtInicio)</th>
+            <th>@Html.DisplayNameFor(model => model.Avaliacao)</th>
+            <th>@Html.DisplayNameFor(model => model.FgAtivo)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.IdParticipante)</td>
+                <td>@Html.DisplayFor(modelItem => item.IdCurso)</td>
+                <td>@Html.DisplayFor(modelItem => item.DtInicio)</td>
+                <td>@Html.DisplayFor(modelItem => item.Avaliacao)</td>
+                <td>@Html.DisplayFor(modelItem => item.FgAtivo)</td>
+                <td>
+                    <a asp-action="Editar" asp-route-id="">Editar</a> |
+                    <a asp-action="Desmatricular" asp-route-id="">Desmatricular</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
