@@ -35,5 +35,47 @@ namespace BancoBadalada.Controllers
             _service.Create(Curso);
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public IActionResult GetCursos()
+        {
+            try
+            {
+                var draw = Request.Form["draw"].FirstOrDefault();
+                var start = Request.Form["start"].FirstOrDefault();
+                var length = Request.Form["length"].FirstOrDefault();
+                var sort = Request.Form["sort"].FirstOrDefault();
+                var searchValue = Request.Form["search[value]"].FirstOrDefault();
+                int pageSize = length != null ? Convert.ToInt32(length) : 0;
+                int skip = start != null ? Convert.ToInt32(start) : 0;
+                int recordsTotal = 0;
+                var cursos = _service.FindAll();
+                if (!string.IsNullOrEmpty(searchValue))
+                {
+                    cursos = cursos.Where(c => c.DsCurso.Contains(searchValue)).ToList();
+                }
+                recordsTotal = cursos.Count();
+                var data = cursos.Skip(skip).Take(pageSize).Select(c => new {
+                    idCurso = c.IdCurso,
+                    dsCurso = c.DsCurso,
+                    categoria = c.Categoria,
+                    duracao = c.Duracao,
+                    ativo = c.FgAtivo
+                }).ToList();
+
+                var jsonData = new
+                {
+                    draw = draw,
+                    recordsFiltered = recordsTotal,
+                    recordsTotal = recordsTotal,
+                    data = data
+                };
+                return Json(jsonData);
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+        }
     }
 }

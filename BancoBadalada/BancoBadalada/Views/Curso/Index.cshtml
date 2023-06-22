@@ -1,41 +1,67 @@
-﻿@model IEnumerable<BancoBadalada.Models.TbCurso>
-@{
+﻿@{
     ViewData["Title"] = "Cursos";
 }
+<link rel="stylesheet" href="~/lib/datatables/css/dataTables.bootstrap4.min.css" />
 
-<h1>Cursos</h1>
-<p>
-    <a asp-action="Criar">Novo Curso</a> |
-    <a asp-controller="CursosOferecidos" asp-action="Index">Cursos Oferecidos</a> 
-</p>
+<div class="text-center">
+    <h1>Cursos</h1>
+    <p>
+        <a asp-action="Criar">Novo Curso</a> |
+        <a asp-controller="CursosOferecidos" asp-action="Index">Cursos Oferecidos</a>
+    </p>
+</div>
+<div class="row justify-content-center">
+    <div class="col-auto">
+        <table id="cursoTable" class="table table-striped table-bordered table-hover dt-responsive nowrap">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Categoria</th>
+                    <th>Duração</th>
+                    <th>Ativo</th>
+                    <th></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
 
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.IdCurso)</th>
-            <th>@Html.DisplayNameFor(model => model.DsCurso)</th>
-            <th>@Html.DisplayNameFor(model => model.Categoria)</th>
-            <th>@Html.DisplayNameFor(model => model.Duracao)</th>
-            <th>@Html.DisplayNameFor(model => model.FgAtivo)</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.IdCurso)</td>
-                <td>@Html.DisplayFor(modelItem => item.DsCurso)</td>
-                <td>@Html.DisplayFor(modelItem => item.Categoria)</td>
-                <td>@Html.DisplayFor(modelItem => item.Duracao)</td>
-                <td>@Html.DisplayFor(modelItem => item.FgAtivo)</td>
-                <td>
-                    <a asp-action="Editar" asp-route-id="">Editar</a> |
-                    <a asp-action="Remover" asp-route-id="">Remover</a> |
-                    <a asp-controller="CursosOferecidos" asp-action="Oferecer" asp-route-id="@item.IdCurso">Oferecer</a> 
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+@section Scripts {
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#cursoTable").dataTable({
+                "processing": true,
+                "serverSide": true,
+                "ajax": {
+                    "url": "@Url.Action("GetCursos")",
+                    "type": "POST",
+                    "datatype": "json"
+                },
+                "columnDefs": [{
+                    "targets": [0],
+                    "visible": false,
+                    "searchable": false
+                }],
+                "columns": [
+                    { "data": "idCurso", "name": "Id", "autoWidth": true },
+                    { "data": "dsCurso", "name": "Nome", "autoWidth": true },
+                    { "data": "categoria", "name": "Categoria", "autoWidth": true },
+                    { "data": "duracao", "name": "Duração", "autoWidth": true },
+                    { "data": "ativo", "name": "Ativo", "autoWidth": true },
+                    {
+                        "data": null, 
+                        "render": function (data, type, row) {
+                            return '<a class="btn btn-info" href="/CursosOferecidos/Oferecer/' + row.idCurso + '" >Oferecer</a>';
+                        }
+                    },
+                ],
+                "language": {
+                    url: "//cdn.datatables.net/plug-ins/1.10.20/i18n/Portuguese.json"
+                }
+            });
+        });
+    </script>
+}
