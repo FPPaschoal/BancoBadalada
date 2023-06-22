@@ -7,10 +7,12 @@ namespace BancoBadalada.Controllers
     public class CursosOferecidosController : Controller
     {
         private readonly IDBContextCursosOferecidos _service;
+        private readonly IDBContextEmpregado _serviceEmpregados;
 
-        public CursosOferecidosController(IDBContextCursosOferecidos service)
+        public CursosOferecidosController(IDBContextCursosOferecidos service, IDBContextEmpregado serviceEmpregados)
         {
             _service = service;
+            _serviceEmpregados = serviceEmpregados;
         }
         public IActionResult Index()
         {
@@ -20,6 +22,7 @@ namespace BancoBadalada.Controllers
         {
             var Aux = new TbCursosOferecidos();
             Aux.IdCurso = id;
+            ViewBag.Empregados = _serviceEmpregados.FindAll();
             return View(Aux);
         }
 
@@ -29,6 +32,7 @@ namespace BancoBadalada.Controllers
         {
 
             cursosOferecidos.FgAtivo = true;
+            cursosOferecidos.Localizacao = cursosOferecidos.Localizacao.ToUpper();
             _service.Create(cursosOferecidos);
             return RedirectToAction("Index");
         }

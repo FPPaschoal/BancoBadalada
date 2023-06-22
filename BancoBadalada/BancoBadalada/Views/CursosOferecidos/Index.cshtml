@@ -23,7 +23,7 @@
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.IdCurso)</td>
                 <td>@Html.DisplayFor(modelItem => item.IdInstrutor)</td>
-                <td>@Html.DisplayFor(modelItem => item.DtInicio)</td>
+                <td>@item.DtInicio.ToString("dd/MM/yyyy")</td>
                 <td>@Html.DisplayFor(modelItem => item.Localizacao)</td>
                 <td>@Html.DisplayFor(modelItem => item.FgAtivo)</td>
                 <td>

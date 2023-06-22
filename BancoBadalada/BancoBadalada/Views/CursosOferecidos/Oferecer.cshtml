@@ -12,11 +12,13 @@
             <input type="hidden" asp-for="IdCurso"/>
         </div>
         <div class="mb-3">
-            <select class="form-select" asp-for="IdInstrutor" aria-label="ID do Instrutor">
-                <option selected>NULL</option>
-                <option value="7566">7566</option>
-                <option value="7876">7876</option>
-                <option value="7369">7369</option>
+            <p>Id do Instrutor</p>
+            <select class="form-select" aria-label="ID do Instrutor" asp-for="IdInstrutor">
+                <option value="" selected>NULL</option>
+                @foreach (var p in ViewBag.empregados)
+                {
+                    <option value="@p.IdEmpregado">@p.IdEmpregado | @p.NmEmpregado</option>
+                }
             </select>
         </div>
         <div class="mb-3">

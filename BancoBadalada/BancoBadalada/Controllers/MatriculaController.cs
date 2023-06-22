@@ -34,7 +34,7 @@ namespace BancoBadalada.Controllers
         {
             matricula.FgAtivo = true;
             _service.Create(matricula);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { id = matricula.IdParticipante });
         }
     }
 }
