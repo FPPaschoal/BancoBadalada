@@ -36,6 +36,13 @@ namespace BancoBadalada.Services
         {
             return _academicoContext.TbMatriculas.Where(x => x.IdParticipante == id).ToList();
         }
+
+        public ICollection<TbMatricula>GetAlunos(string idCurso, string dtCurso)
+        {
+            DateTime data = DateTime.Parse(dtCurso);
+            return _academicoContext.TbMatriculas.Where(x => x.IdCurso == idCurso && x.DtInicio == data).ToList();
+        }
+
         public void Update(TbMatricula services)
         {
             _academicoContext.TbMatriculas.Update(services);
