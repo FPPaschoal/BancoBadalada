@@ -1,6 +1,7 @@
 ﻿using BancoBadalada.Models;
 using BancoBadalada.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BancoBadalada.Controllers
 {
@@ -17,14 +18,14 @@ namespace BancoBadalada.Controllers
             return View(_service.FindAll());
         }
 
-        public IActionResult Criar() 
+        public IActionResult Criar()
         {
             return View();
         }
 
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public IActionResult Criar([Bind("IdCurso","DsCurso", "Categoria", "Duracao")] TbCurso Curso)
+        public IActionResult Criar([Bind("IdCurso", "DsCurso", "Categoria", "Duracao")] TbCurso Curso)
         {
             if (Char.IsDigit(Curso.DsCurso[0]))
             {
@@ -35,6 +36,47 @@ namespace BancoBadalada.Controllers
             _service.Create(Curso);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public IActionResult Remover(string id)
+        {
+            TbCurso curso = _service.Find(new TbCurso { IdCurso = id });
+            return View(curso);
+        }
+
+
+        [HttpPost]
+        public IActionResult Remover(TbCurso curso)
+        {
+            try
+            {
+                _service.Delete(curso);
+                return RedirectToAction("Index");
+            }
+            catch (DbUpdateException)
+            {
+
+                ViewBag.ErrorMessage = "Impossivel excluir o curso enquanto ele esta sendo oferecido. Remova o curso dos cursos oferecidos";
+                return View(curso); // Retorna a mesma página com uma mensagem de erro
+            }
+
+        }
+
+        [HttpGet]
+        public IActionResult Editar(string id)
+        {
+            TbCurso curso = _service.Find(new TbCurso { IdCurso = id });
+            return View(curso);
+        }
+
+        [HttpPost]
+        public IActionResult Editar(TbCurso curso)
+        {
+            _service.Update(curso);
+            return RedirectToAction("Index");
+
+        }
+
 
         [HttpPost]
         public IActionResult GetCursos()
@@ -55,7 +97,8 @@ namespace BancoBadalada.Controllers
                     cursos = cursos.Where(c => c.DsCurso.Contains(searchValue)).ToList();
                 }
                 recordsTotal = cursos.Count();
-                var data = cursos.Skip(skip).Take(pageSize).Select(c => new {
+                var data = cursos.Skip(skip).Take(pageSize).Select(c => new
+                {
                     idCurso = c.IdCurso,
                     dsCurso = c.DsCurso,
                     categoria = c.Categoria,

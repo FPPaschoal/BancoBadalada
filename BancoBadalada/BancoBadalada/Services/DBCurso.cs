@@ -1,4 +1,6 @@
 ﻿using BancoBadalada.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 
 namespace BancoBadalada.Services
 {
@@ -20,8 +22,15 @@ namespace BancoBadalada.Services
 
         public void Delete(TbCurso Curso)
         {
-            _academicoContext.TbCursos.Remove(Curso);
-            _academicoContext.SaveChanges();
+            try
+            {
+                _academicoContext.TbCursos.Remove(Curso);
+                _academicoContext.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                throw;
+            }
         }
 
         public TbCurso Find(TbCurso Curso)

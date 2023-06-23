@@ -21,12 +21,13 @@
                     <th>Duração</th>
                     <th>Ativo</th>
                     <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
         </table>
     </div>
 </div>
-
 @section Scripts {
     <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
     <script src="~/lib/datatables/js/dataTables.bootstrap4.min.js"></script>
@@ -52,9 +53,21 @@
                     { "data": "duracao", "name": "Duração", "autoWidth": true },
                     { "data": "ativo", "name": "Ativo", "autoWidth": true },
                     {
-                        "data": null, 
+                        "data": null,
                         "render": function (data, type, row) {
-                            return '<a class="btn btn-info" href="/CursosOferecidos/Oferecer/' + row.idCurso + '" >Oferecer</a>';
+                            return '<a class="btn btn-success" href="/CursosOferecidos/Oferecer/' + row.idCurso + '" >Oferecer</a>';
+                        }
+                    },
+                    {
+                        "data": null,
+                        "render": function (data, type, row) {
+                            return '<a class="btn btn-info" href="Curso/Editar/' + row.idCurso + '" >Editar</a>';
+                        }
+                    },
+                    {
+                        "data": null,
+                        "render": function (data, type, row) {
+                            return '<a class="btn btn-danger" href="Curso/Remover/' + row.idCurso + '" >Remover</a>';
                         }
                     },
                 ],
