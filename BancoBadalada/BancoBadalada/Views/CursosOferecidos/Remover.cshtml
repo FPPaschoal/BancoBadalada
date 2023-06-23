@@ -1,0 +1,29 @@
+﻿@model TbCursosOferecidos
+@{
+    ViewData["Title"] = "Remover Curso Oferecido";
+}
+
+<h1>@ViewData["Title"] (@Model.IdCurso)</h1>
+
+<p>
+    @Model.IdInstrutor<br />
+    @Model.Localizacao<br />
+</p>
+<table class="table">
+    <tbody>
+        <tr>
+            <td>
+                <form asp-action="Remover">
+                    <input type="hidden" asp-for="IdCurso" class="form-control" />
+                    <input type="hidden" asp-for="DtInicio" class="form-control" />
+                    <input type="hidden" asp-for="IdInstrutor" class="form-control" />
+                    <input type="hidden" asp-for="Localizacao" class="form-control" />
+                    <input type="hidden" asp-for="FgAtivo" class="form-control" />
+                    <input type="submit" value="Confirmar Remoção" class="btn btn-primary btn-danger" />
+                </form>
+                <br />
+                <a class="btn btn-primary" asp-action="Index">Cancelar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
