@@ -52,7 +52,7 @@ namespace BancoBadalada.Controllers
             try
             {
                 _service.Delete(curso);
-                return Json(new { success = true });
+                return Json(new { success = true, successMessage = "Curso removido com sucesso!" });
             }
             catch (DbUpdateException)
             {

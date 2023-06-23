@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<AcademicoContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionBadalada")));
+builder.Services.AddDbContext<AcademicoContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
 builder.Services.AddScoped<IDBContextDepartamento, DBDepartamento>();
 builder.Services.AddScoped<IDBContextCurso, DBCurso>();

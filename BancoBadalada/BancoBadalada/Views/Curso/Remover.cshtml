@@ -9,11 +9,12 @@
     @Model.DsCurso<br />
     @Model.Categoria<br />
 </p>
+
 <table class="table">
     <tbody>
         <tr>
             <td>
-                <form asp-action="Remover">
+                <form id="removerForm" asp-action="Remover">
                     <input type="hidden" asp-for="IdCurso" class="form-control" />
                     <input type="hidden" asp-for="DsCurso" class="form-control" />
                     <input type="hidden" asp-for="Categoria" class="form-control" />
@@ -26,9 +27,74 @@
     </tbody>
 </table>
 
-@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="errorModalLabel">Erro</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                <p id="errorMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="successModalLabel">Curso removido</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                <p id="successMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts
 {
-    <script>
-        alert('@ViewBag.ErrorMessage');
+        <script>
+        $(document).ready(function () {
+            $("#successModal").on("hide.bs.modal",function(){
+                window.location.href = '/Curso/Index';
+            })
+
+            $('#removerForm').submit(function (e) {
+                e.preventDefault(); // Impede o envio do formulário padrão
+
+                $.ajax({
+                    url: $(this).attr('action'), // URL para enviar a requisição AJAX
+                    type: 'POST',
+                    data: $(this).serialize(), // Serializa os dados do formulário
+                    success: function (result) {
+                        if (result.success) {
+                            //Sucesso na exclusão, redireciona para a página "Index"
+                            $('#successMessage').text(result.successMessage);
+                            $('#successModal').modal('show');
+                            
+                        } else {
+                            // Erro na exclusão, exibe o modal com a mensagem de erro
+                            $('#errorMessage').text(result.errorMessage);
+                            $('#errorModal').modal('show');
+                        }
+                    },
+                    error: function () {
+                        // Erro na requisição AJAX, exibe o modal com uma mensagem genérica de erro
+                        $('#errorMessage').text('Ocorreu um erro na comunicação com o servidor.');
+                        $('#errorModal').modal('show');
+                    }
+                });
+            });
+        });
     </script>
+
 }
