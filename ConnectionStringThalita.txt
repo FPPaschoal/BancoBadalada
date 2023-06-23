@@ -1,1 +1,0 @@
-"Server=RPOTI007\\SQLEXPRESS;Initial Catalog=Academico;Persist Security Info=True;User ID=sa;Password=SenhaBk@123;TrustServerCertificate=true;Trusted_Connection=true"
