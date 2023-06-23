@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\felipe.paschoal\\OneDrive - BF INSTITUICAO DE PAGAMENTO LTDA\\Área de Trabalho\\BancoBadaladaFelipera\\BancoBadalada\\BancoBadalada\\BancoBadalada.csproj": {}
+    "C:\\Users\\thalita.paz\\Documents\\ESTUDOS\\BkBank Academy\\Lucas\\C#\\Aula9\\BancoBadalada\\BancoBadaladaFelipera\\BancoBadalada\\BancoBadalada\\BancoBadalada.csproj": {}
   },
   "projects": {
-    "C:\\Users\\felipe.paschoal\\OneDrive - BF INSTITUICAO DE PAGAMENTO LTDA\\Área de Trabalho\\BancoBadaladaFelipera\\BancoBadalada\\BancoBadalada\\BancoBadalada.csproj": {
+    "C:\\Users\\thalita.paz\\Documents\\ESTUDOS\\BkBank Academy\\Lucas\\C#\\Aula9\\BancoBadalada\\BancoBadaladaFelipera\\BancoBadalada\\BancoBadalada\\BancoBadalada.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\felipe.paschoal\\OneDrive - BF INSTITUICAO DE PAGAMENTO LTDA\\Área de Trabalho\\BancoBadaladaFelipera\\BancoBadalada\\BancoBadalada\\BancoBadalada.csproj",
+        "projectUniqueName": "C:\\Users\\thalita.paz\\Documents\\ESTUDOS\\BkBank Academy\\Lucas\\C#\\Aula9\\BancoBadalada\\BancoBadaladaFelipera\\BancoBadalada\\BancoBadalada\\BancoBadalada.csproj",
         "projectName": "BancoBadalada",
-        "projectPath": "C:\\Users\\felipe.paschoal\\OneDrive - BF INSTITUICAO DE PAGAMENTO LTDA\\Área de Trabalho\\BancoBadaladaFelipera\\BancoBadalada\\BancoBadalada\\BancoBadalada.csproj",
-        "packagesPath": "C:\\Users\\felipe.paschoal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\felipe.paschoal\\OneDrive - BF INSTITUICAO DE PAGAMENTO LTDA\\Área de Trabalho\\BancoBadaladaFelipera\\BancoBadalada\\BancoBadalada\\obj\\",
+        "projectPath": "C:\\Users\\thalita.paz\\Documents\\ESTUDOS\\BkBank Academy\\Lucas\\C#\\Aula9\\BancoBadalada\\BancoBadaladaFelipera\\BancoBadalada\\BancoBadalada\\BancoBadalada.csproj",
+        "packagesPath": "C:\\Users\\thalita.paz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\thalita.paz\\Documents\\ESTUDOS\\BkBank Academy\\Lucas\\C#\\Aula9\\BancoBadalada\\BancoBadaladaFelipera\\BancoBadalada\\BancoBadalada\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\felipe.paschoal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\thalita.paz\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -80,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
