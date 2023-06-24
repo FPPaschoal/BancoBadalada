@@ -8,6 +8,10 @@ namespace BancoBadalada.Controllers
 {
     public class MatriculaController : Controller
     {
+        public void testeMergeFelipe()
+        {
+
+        }
         private readonly IDBContextMatricula _service;
         private readonly IDBContextEmpregado _serviceEmpregado;
 
