@@ -72,12 +72,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/felip/OneDrive/Documentos/GitHub/BancoBadaladaFelipera/BancoBadalada/BancoBadalada/Views/Matricula/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0cmljdWxhXEVkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/felip/OneDrive/Documentos/GitHub/BancoBadaladaFelipera/BancoBadalada/BancoBadalada/Views/Matricula/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0cmljdWxhXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/felip/OneDrive/Documentos/GitHub/BancoBadaladaFelipera/BancoBadalada/BancoBadalada/Views/Matricula/Matricular.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0cmljdWxhXE1hdHJpY3VsYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/felip/OneDrive/Documentos/GitHub/BancoBadaladaFelipera/BancoBadalada/BancoBadalada/Views/Matricula/Remover.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0cmljdWxhXFJlbW92ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/felip/OneDrive/Documentos/GitHub/BancoBadaladaFelipera/BancoBadalada/BancoBadalada/Views/Shared/Error.cshtml]

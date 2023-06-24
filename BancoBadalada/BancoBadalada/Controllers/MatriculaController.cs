@@ -45,5 +45,37 @@ namespace BancoBadalada.Controllers
             _service.Create(matricula);
             return RedirectToAction("Index", new { id = matricula.IdParticipante });
         }
+
+
+        [HttpGet]
+        public IActionResult Remover(string idCurso, string dtCurso, int idParticipante)
+        {
+            DateTime data = DateTime.Parse(dtCurso);
+            TbMatricula matricula = _service.Find(new TbMatricula { IdCurso = idCurso, DtInicio = data, IdParticipante = idParticipante });
+            return View(matricula);
+        }
+
+        [HttpPost]
+        public IActionResult Remover(TbMatricula matricula)
+        {
+            _service.Delete(matricula);
+            return RedirectToAction("Index", new TbMatricula { DtInicio = matricula.DtInicio, IdCurso = matricula.IdCurso });
+        }
+
+        [HttpGet]
+        public IActionResult Editar(string idCurso, string dtCurso, int idParticipante)
+        {
+            DateTime data = DateTime.Parse(dtCurso);
+            TbMatricula matricula = _service.Find(new TbMatricula { IdCurso = idCurso, DtInicio = data, IdParticipante = idParticipante });
+            return View(matricula);
+        }
+
+        [HttpPost]
+        public IActionResult Editar(TbMatricula matricula)
+        {
+            _service.Update(matricula);
+            return RedirectToAction("Index", new TbMatricula { DtInicio = matricula.DtInicio, IdCurso = matricula.IdCurso });
+        }
+
     }
 }

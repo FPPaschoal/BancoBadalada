@@ -25,7 +25,7 @@ namespace BancoBadalada.Services
 
         public TbMatricula Find(TbMatricula matricula)
         {
-            return new TbMatricula();
+            return _academicoContext.TbMatriculas.First(x => x.IdCurso == matricula.IdCurso && x.IdParticipante == matricula.IdParticipante && x.DtInicio == matricula.DtInicio);
         }
 
         public ICollection<TbMatricula> FindAll()

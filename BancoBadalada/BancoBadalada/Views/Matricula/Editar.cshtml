@@ -1,0 +1,42 @@
+﻿@model TbMatricula
+@{
+    ViewData["Title"] = "Editar Matricula";
+}
+
+<h1>Id (@Model.IdCurso)</h1>
+<h2>Categoria (@Model.IdParticipante)</h2>
+
+<h4>Editar</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Editar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" asp-for="IdCurso" />
+                <input type="hidden" asp-for="IdParticipante" />
+                <input type="hidden" asp-for="DtInicio" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Avaliacao" class="control-label"></label>
+                <input asp-for="Avaliacao" type="number" step="1" min="1" max="5" class="form-control" />
+                <span asp-validation-for="Avaliacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FgAtivo" class="control-label"></label>
+                <select class="form-select" aria-label="FgAtivo" asp-for="FgAtivo">
+                    <option value="True" selected>Ativado</option>
+                    <option value="False">Desativado</option>
+                </select>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Atualizar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a class="btn btn-danger" asp-action="Index">Voltar</a>
+</div>

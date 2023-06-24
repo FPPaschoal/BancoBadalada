@@ -38,8 +38,8 @@
                 <td>@Html.DisplayFor(modelItem => item.Avaliacao)</td>
                 <td>@Html.DisplayFor(modelItem => item.FgAtivo)</td>
                 <td>
-                    <a asp-action="Editar" asp-route-id="">Editar</a> |
-                    <a asp-action="Desmatricular" asp-route-id="">Desmatricular</a>
+                    <a asp-action="Editar" asp-route-idCurso="@item.IdCurso" asp-route-dtCurso="@item.DtInicio" asp-route-idParticipante="@item.IdParticipante">Editar</a> |
+                    <a asp-action="Remover" asp-route-idCurso="@item.IdCurso" asp-route-dtCurso="@item.DtInicio" asp-route-idParticipante="@item.IdParticipante">Desmatricular</a>
                 </td>
             </tr>
         }
