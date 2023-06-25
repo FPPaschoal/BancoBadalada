@@ -1,0 +1,30 @@
+﻿@model IEnumerable<BancoBadalada.Models.TbHistorico>
+
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID do Empregado</th>
+            <th scope="col">Data de inicio</th>
+            <th scope="col">ID do departamento</th>
+            <th scope="col">Ano de inicio</th>
+            <th scope="col">Data Final</th>
+            <th scope="col">Salario</th>
+            <th scope="col">Comentarios</th>      
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.IdEmpregado</td>
+                <td>@item.DtInicio.ToString("dd/MM/yyyy")</td>
+                <td>@item.IdDepartamento</td>
+                <td>@item.AnoInicio</td>
+                <td>@(item.DtFinal != null ? item.DtFinal.Value.ToString("dd/MM/yyyy") : "-")</td>
+                <td>@item.Salario</td>
+                <td>@item.Comentarios</td>
+            </tr>
+        }
+    </tbody>
+</table>

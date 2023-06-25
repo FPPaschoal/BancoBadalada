@@ -1,0 +1,50 @@
+﻿@model IEnumerable<BancoBadalada.Models.TbEmpregado>
+@{
+    ViewData["Title"] = "Selecionar empregado para exibir histórico";
+}
+ <form asp-action="Exibir" id="Exibir">
+        <div class="mb-3">
+            <p>Selecione o empregado que deseja exibir o histórico:</p>
+            <select class="form-select" aria-label="ID do empregado" id="select" >
+                <option value="" selected>NULL</option>
+            @foreach (var p in Model)
+            {
+                <option asp-for="IdEmpregado" value="@p.IdEmpregado">@p.IdEmpregado | @p.NmEmpregado</option>
+            }
+            </select>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Exibir" />
+ </form>
+
+ <div id="historico"></div>
+
+@section Scripts
+ {
+     <script>
+         $(document).ready(function(){
+            configureSubmitEventHandler();
+         });
+
+         function configureSubmitEventHandler(){
+            $('#Exibir').submit(function(e){
+                e.preventDefault();
+                getHistory();
+            });
+
+            function getHistory(){
+                let IdEmpregado = $('#select option:selected').val();
+
+                $.ajax({
+                    url:`@Url.Action("Exibir","Historico")?idEmpregado=${IdEmpregado}`,
+                    type: 'GET',
+                    success: function(result){
+                        $('#historico').html(result);
+                    },
+                    error: function(){
+                        $('#historico').html('<p>Ocorreu um erro ao obter o histórico.</p>');
+                    }
+                })
+            }
+         }
+     </script>
+ }

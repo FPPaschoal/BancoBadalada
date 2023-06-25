@@ -46,18 +46,18 @@ namespace BancoBadalada.Controllers
 
 
         [HttpPost]
+        [AutoValidateAntiforgeryToken]
         public IActionResult Remover(TbCurso curso)
         {
             try
             {
                 _service.Delete(curso);
-                return RedirectToAction("Index");
+                return Json(new { success = true, successMessage = "Curso removido com sucesso!" });
             }
             catch (DbUpdateException)
             {
 
-                ViewBag.ErrorMessage = "Impossivel excluir o curso enquanto ele esta sendo oferecido. Remova o curso dos cursos oferecidos";
-                return View(curso); // Retorna a mesma página com uma mensagem de erro
+                return Json(new { success = false, errorMessage = "Impossível excluir o curso enquanto ele está sendo oferecido. Remova o curso dos cursos oferecidos." });
             }
 
         }

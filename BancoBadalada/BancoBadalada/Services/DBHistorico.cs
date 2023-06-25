@@ -32,7 +32,10 @@ namespace BancoBadalada.Services
         {
             throw new NotImplementedException();
         }
-
+        public ICollection<TbHistorico> FindAllEmp(int idEmpregado)
+        {
+            return _academicoContext.TbHistoricos.Where(c=> c.IdEmpregado== idEmpregado).ToList();
+        }
         public int GetNextId()
         {
             throw new NotImplementedException();
