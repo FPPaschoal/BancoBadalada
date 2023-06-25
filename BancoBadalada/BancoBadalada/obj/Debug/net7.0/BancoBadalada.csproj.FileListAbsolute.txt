@@ -224,7 +224,6 @@ C:\Users\felipe.paschoal\OneDrive - BF INSTITUICAO DE PAGAMENTO LTDA\Área de Tr
 C:\Users\felipe.paschoal\OneDrive - BF INSTITUICAO DE PAGAMENTO LTDA\Área de Trabalho\BancoBadaladaFelipera\BancoBadalada\BancoBadalada\obj\Debug\net7.0\BancoBadalada.genruntimeconfig.cache
 C:\Users\felipe.paschoal\OneDrive - BF INSTITUICAO DE PAGAMENTO LTDA\Área de Trabalho\BancoBadaladaFelipera\BancoBadalada\BancoBadalada\obj\Debug\net7.0\ref\BancoBadalada.dll
 C:\Users\felipe.paschoal\OneDrive - BF INSTITUICAO DE PAGAMENTO LTDA\Área de Trabalho\BancoBadaladaFelipera\BancoBadalada\BancoBadalada\bin\Debug\net7.0\libman.json
-C:\Users\felip\OneDrive\Documentos\GitHub\BancoBadaladaFelipera\BancoBadalada\BancoBadalada\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\felip\OneDrive\Documentos\GitHub\BancoBadaladaFelipera\BancoBadalada\BancoBadalada\bin\Debug\net7.0\appsettings.json
 C:\Users\felip\OneDrive\Documentos\GitHub\BancoBadaladaFelipera\BancoBadalada\BancoBadalada\bin\Debug\net7.0\libman.json
 C:\Users\felip\OneDrive\Documentos\GitHub\BancoBadaladaFelipera\BancoBadalada\BancoBadalada\bin\Debug\net7.0\BancoBadalada.staticwebassets.runtime.json
