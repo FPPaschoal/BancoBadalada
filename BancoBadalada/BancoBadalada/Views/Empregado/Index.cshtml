@@ -2,45 +2,49 @@
 @{
     ViewData["Title"] = "Empregados";
 }
+<div class="text-center">
+    <h1>Empregados</h1>
+    <p>
+        <a class="link-info link-offset-2 link-underline link-underline-opacity-0" asp-action="Criar" asp-route-id="@ViewBag.IdDepartamento">Novo Empregado</a>
+    </p>
+</div>
 
-<h1>Empregados</h1>
-<p>
-    <a asp-action="Criar" asp-route-id="@ViewBag.IdDepartamento">Novo Empregado</a>
-</p>
-
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.IdEmpregado)</th>
-            <th>@Html.DisplayNameFor(model => model.NmEmpregado)</th>
-            <th>@Html.DisplayNameFor(model => model.IniciaisEmpregado)</th>
-            <th>@Html.DisplayNameFor(model => model.DsCargo)</th>
-            <th>@Html.DisplayNameFor(model => model.DtNascimento)</th>
-            <th>@Html.DisplayNameFor(model => model.Salario)</th>
-            <th>@Html.DisplayNameFor(model => model.Comissao)</th>
-            <th>@Html.DisplayNameFor(model => model.FgAtivo)</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.IdEmpregado)</td>
-                <td>@Html.DisplayFor(modelItem => item.NmEmpregado)</td>
-                <td>@Html.DisplayFor(modelItem => item.IniciaisEmpregado)</td>
-                <td>@Html.DisplayFor(modelItem => item.DsCargo)</td>
-                <td>@item.DtNascimento.ToString("dd/MM/yyyy")</td>
-                <td>@Html.DisplayFor(modelItem => item.Salario)</td>
-                <td>@Html.DisplayFor(modelItem => item.Comissao)</td>
-                <td>@Html.DisplayFor(modelItem => item.FgAtivo)</td>
-                <td>
-                    <a asp-action="Editar" asp-route-id="">Editar</a> |
-                    <a asp-action="Remover" asp-route-id="">Remover</a> |
-                    <a asp-controller="Matricula" asp-action="Index" asp-route-id="@item.IdEmpregado">Matriculas</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="row justify-content-center">
+    <div class="col-auto">
+        <table  class="table table-striped table-bordered table-hover dt-responsive nowrap">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.IdEmpregado)</th>
+                    <th>@Html.DisplayNameFor(model => model.NmEmpregado)</th>
+                    <th>@Html.DisplayNameFor(model => model.IniciaisEmpregado)</th>
+                    <th>@Html.DisplayNameFor(model => model.DsCargo)</th>
+                    <th>@Html.DisplayNameFor(model => model.DtNascimento)</th>
+                    <th>@Html.DisplayNameFor(model => model.Salario)</th>
+                    <th>@Html.DisplayNameFor(model => model.Comissao)</th>
+                    <th>@Html.DisplayNameFor(model => model.FgAtivo)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.IdEmpregado)</td>
+                        <td>@Html.DisplayFor(modelItem => item.NmEmpregado)</td>
+                        <td>@Html.DisplayFor(modelItem => item.IniciaisEmpregado)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DsCargo)</td>
+                        <td>@item.DtNascimento.ToString("dd/MM/yyyy")</td>
+                        <td>@Html.DisplayFor(modelItem => item.Salario)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Comissao)</td>
+                        <td>@Html.DisplayFor(modelItem => item.FgAtivo)</td>
+                        <td>
+                            <a asp-action="Editar" class="btn btn-info" asp-route-id="">Editar</a> 
+                            <a asp-action="Remover"  class="btn btn-danger" asp-route-id="">Remover</a> 
+                            <a asp-controller="Matricula" class="btn btn-success" asp-action="Index" asp-route-id="@item.IdEmpregado">Matriculas</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

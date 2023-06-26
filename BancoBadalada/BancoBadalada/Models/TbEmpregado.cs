@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
@@ -11,27 +12,33 @@ public partial class TbEmpregado
 {
     [Key]
     [Column("id_empregado")]
+    [DisplayName("ID")]
     public int IdEmpregado { get; set; }
 
     [Column("nm_empregado")]
     [StringLength(60)]
     [Unicode(false)]
+    [DisplayName("Nome")]
     public string NmEmpregado { get; set; } = null!;
 
     [Column("iniciais_empregado")]
     [StringLength(5)]
     [Unicode(false)]
+    [DisplayName("Iniciais")]
     public string IniciaisEmpregado { get; set; } = null!;
 
     [Column("ds_cargo")]
     [StringLength(40)]
     [Unicode(false)]
+    [DisplayName("Descrição cargo")]
     public string? DsCargo { get; set; }
 
     [Column("id_gerente")]
+    [DisplayName("ID gerente")]
     public int? IdGerente { get; set; }
 
     [Column("dt_nascimento", TypeName = "date")]
+    [DisplayName("Data nascimento")]
     public DateTime DtNascimento { get; set; }
 
     [Column("salario", TypeName = "numeric(7, 2)")]
