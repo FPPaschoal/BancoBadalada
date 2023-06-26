@@ -40,5 +40,48 @@ namespace BancoBadalada.Controllers
             _service.Create(departamento);
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public IActionResult GetDepartamentos()
+        {
+            try
+            {
+                var draw = Request.Form["draw"].FirstOrDefault();
+                var start = Request.Form["start"].FirstOrDefault();
+                var length = Request.Form["length"].FirstOrDefault();
+                var sort = Request.Form["sort"].FirstOrDefault();
+                var searchValue = Request.Form["search[value]"].FirstOrDefault();
+                int pageSize = length != null ? Convert.ToInt32(length) : 0;
+                int skip = start != null ? Convert.ToInt32(start) : 0;
+                int recordsTotal = 0;
+                var departamentos = _service.FindAll();
+                if (!string.IsNullOrEmpty(searchValue))
+                {
+                    departamentos = departamentos.Where(c => c.NmDepartamento.Contains(searchValue)).ToList();
+                }
+                recordsTotal = departamentos.Count();
+                var data = departamentos.Skip(skip).Take(pageSize).Select(c => new
+                {
+                    idDepartamento = c.IdDepartamento,
+                    nmDepartamento = c.NmDepartamento,
+                    idGerente = c.IdGerente,
+                    localizacao = c.Localizacao,
+                    ativo = c.FgAtivo
+                }).ToList();
+
+                var jsonData = new
+                {
+                    draw = draw,
+                    recordsFiltered = recordsTotal,
+                    recordsTotal = recordsTotal,
+                    data = data
+                };
+                return Json(jsonData);
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+        }
     }
 }

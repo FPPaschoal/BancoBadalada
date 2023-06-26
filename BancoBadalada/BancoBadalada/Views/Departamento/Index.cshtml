@@ -3,38 +3,80 @@
     ViewData["Title"] = "Departamentos";
 }
 
-<h1>Departamentos</h1>
-<p>
-<a asp-action="Criar">Novo Departamento</a>
-</p>
+<div class="text-center">
+    <h1>Departamentos</h1>
+    <p>
+    <a class="link-info link-offset-2 link-underline link-underline-opacity-0" asp-action="Criar">Novo Departamento</a>
+    </p>
+</div>
+<div class="row justify-content-center">
+    <div class="col-auto">
+        <table id="departamentoTable" class="table table-striped table-bordered table-hover dt-responsive nowrap">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Id Gerente</th>
+                    <th>Localização</th>
+                    <th>Ativo</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#departamentoTable").dataTable({
+                "processing":true,
+                "serverSide": true,
+                "ajax":{
+                    "url": "@Url.Action("GetDepartamentos")",
+                    "type": "POST",
+                    "datatype": "json"
+                },
+                "columnDefs":[{
+                    "targets": [0],
+                    "visible": false,
+                    "searchable":false
+                }],
+                "columns":[
+                    {"data": "idDepartamento", "name": "Id", "autoWidth":true},
+                    {"data": "nmDepartamento", "name": "Nome", "autoWidth":true},
+                    {"data": "idGerente", "name": "Id Gerente", "autoWidth":true},
+                    {"data": "localizacao", "name": "Localização", "autoWidth":true},
+                    {"data": "ativo", "name": "Ativo", "autoWidth":true},
+                    {
+                        "data": null,
+                        "render": function (data, type, row) {
+                            return '<a class="btn btn-info" href="/Departamento/Editar/' + row.idDepartamento +'" >Editar</a>';
+                        }
+                    },
+                    {
+                        "data": null,
+                        "render": function (data, type, row) {
+                                return '<a class="btn btn-danger" href="/Departamento/Remover/' + row.idDepartamento +'" >Remover</a>';
+                        }
+                    },
+                    {
+                        "data": null,
+                        "render": function (data, type, row) {
+                                return '<a class="btn btn-success" href="/Empregado/Index/' + row.idDepartamento +'" >Empregados</a>';
+                        }
+                    },
+                ],
+                "language": {
+                    url: "//cdn.datatables.net/plug-ins/1.10.20/i18n/Portuguese.json"
+                }
+            });
+        });
+    </script>
+}
 
 
-<table class="table">
-<thead>
-<tr>
-<th>@Html.DisplayNameFor(model => model.IdDepartamento)</th>
-<th>@Html.DisplayNameFor(model => model.NmDepartamento)</th>
-<th>@Html.DisplayNameFor(model => model.IdGerente)</th>
-<th>@Html.DisplayNameFor(model => model.Localizacao)</th>
-<th>@Html.DisplayNameFor(model => model.FgAtivo)</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.IdDepartamento)</td>
-                <td>@Html.DisplayFor(modelItem => item.NmDepartamento)</td>
-                <td>@Html.DisplayFor(modelItem => item.IdGerente)</td>
-                <td>@Html.DisplayFor(modelItem => item.Localizacao)</td>
-                <td>@Html.DisplayFor(modelItem => item.FgAtivo)</td>
-            <td>
-            <a asp-action="Editar" asp-route-id="">Editar</a> |
-            <a asp-action="Remover" asp-route-id="">Remover</a> |
-            <a asp-controller="Empregado" asp-action="Index" asp-route-id="@item.IdDepartamento">Empregados</a>
-            </td>
-            </tr>
-        }
-</tbody>
-</table>
+@*<a asp-action="Editar" asp-route-id="">Editar</a> |*@
+@*<a asp-action="Remover" asp-route-id="">Remover</a> |*@
+@*<a asp-controller="Empregado" asp-action="Index" asp-route-id="@item.IdDepartamento">Empregados</a>*@
