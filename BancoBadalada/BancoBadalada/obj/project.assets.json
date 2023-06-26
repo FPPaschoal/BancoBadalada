@@ -3463,19 +3463,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\felip\\.nuget\\packages\\": {}
+    "C:\\Users\\felipe.paschoal\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\felip\\OneDrive\\Documentos\\GitHub\\BancoBadaladaFelipera\\BancoBadalada\\BancoBadalada\\BancoBadalada.csproj",
+      "projectUniqueName": "C:\\Users\\felipe.paschoal\\OneDrive - BF INSTITUICAO DE PAGAMENTO LTDA\\Área de Trabalho\\BancoBadaladaFelipera\\BancoBadalada\\BancoBadalada\\BancoBadalada.csproj",
       "projectName": "BancoBadalada",
-      "projectPath": "C:\\Users\\felip\\OneDrive\\Documentos\\GitHub\\BancoBadaladaFelipera\\BancoBadalada\\BancoBadalada\\BancoBadalada.csproj",
-      "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\felip\\OneDrive\\Documentos\\GitHub\\BancoBadaladaFelipera\\BancoBadalada\\BancoBadalada\\obj\\",
+      "projectPath": "C:\\Users\\felipe.paschoal\\OneDrive - BF INSTITUICAO DE PAGAMENTO LTDA\\Área de Trabalho\\BancoBadaladaFelipera\\BancoBadalada\\BancoBadalada\\BancoBadalada.csproj",
+      "packagesPath": "C:\\Users\\felipe.paschoal\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\felipe.paschoal\\OneDrive - BF INSTITUICAO DE PAGAMENTO LTDA\\Área de Trabalho\\BancoBadaladaFelipera\\BancoBadalada\\BancoBadalada\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\felip\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\felipe.paschoal\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3483,7 +3483,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3542,7 +3541,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

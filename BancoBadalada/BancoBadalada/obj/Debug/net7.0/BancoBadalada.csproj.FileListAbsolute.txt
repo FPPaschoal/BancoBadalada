@@ -148,7 +148,6 @@ C:\Users\thalita.paz\Documents\ESTUDOS\BkBank Academy\Lucas\C#\Aula9\BancoBadala
 C:\Users\thalita.paz\Documents\ESTUDOS\BkBank Academy\Lucas\C#\Aula9\BancoBadalada\BancoBadalada\obj\Debug\net7.0\BancoBadalada.pdb
 C:\Users\thalita.paz\Documents\ESTUDOS\BkBank Academy\Lucas\C#\Aula9\BancoBadalada\BancoBadalada\obj\Debug\net7.0\BancoBadalada.genruntimeconfig.cache
 C:\Users\thalita.paz\Documents\ESTUDOS\BkBank Academy\Lucas\C#\Aula9\BancoBadalada\BancoBadalada\obj\Debug\net7.0\ref\BancoBadalada.dll
-C:\Users\felipe.paschoal\OneDrive - BF INSTITUICAO DE PAGAMENTO LTDA\Área de Trabalho\BancoBadaladaFelipera\BancoBadalada\BancoBadalada\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\felipe.paschoal\OneDrive - BF INSTITUICAO DE PAGAMENTO LTDA\Área de Trabalho\BancoBadaladaFelipera\BancoBadalada\BancoBadalada\bin\Debug\net7.0\appsettings.json
 C:\Users\felipe.paschoal\OneDrive - BF INSTITUICAO DE PAGAMENTO LTDA\Área de Trabalho\BancoBadaladaFelipera\BancoBadalada\BancoBadalada\bin\Debug\net7.0\BancoBadalada.staticwebassets.runtime.json
 C:\Users\felipe.paschoal\OneDrive - BF INSTITUICAO DE PAGAMENTO LTDA\Área de Trabalho\BancoBadaladaFelipera\BancoBadalada\BancoBadalada\bin\Debug\net7.0\BancoBadalada.exe
