@@ -1,39 +1,43 @@
 ﻿@model IEnumerable<BancoBadalada.Models.TbCursosOferecidos>
-
 @{
     ViewData["Title"] = "Cursos Oferecidos";
 }
+<div class="text-center">
+    <h1>Cursos Oferecidos</h1>
+</div>
 
-<h1>Cursos Oferecidos</h1>
+<div class="row justify-content-center">
+    <div class="col-auto">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.IdCurso)</th>
+                    <th>@Html.DisplayNameFor(model => model.IdInstrutor)</th>
+                    <th>@Html.DisplayNameFor(model => model.DtInicio)</th>
+                    <th>@Html.DisplayNameFor(model => model.Localizacao)</th>
+                    <th>@Html.DisplayNameFor(model => model.FgAtivo)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.IdCurso)</td>
+                        <td>@Html.DisplayFor(modelItem => item.IdInstrutor)</td>
+                        <td>@item.DtInicio.ToString("dd/MM/yyyy")</td>
+                        <td>@Html.DisplayFor(modelItem => item.Localizacao)</td>
+                        <td>@Html.DisplayFor(modelItem => item.FgAtivo)</td>
+                        <td>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.IdCurso)</th>
-            <th>@Html.DisplayNameFor(model => model.IdInstrutor)</th>
-            <th>@Html.DisplayNameFor(model => model.DtInicio)</th>
-            <th>@Html.DisplayNameFor(model => model.Localizacao)</th>
-            <th>@Html.DisplayNameFor(model => model.FgAtivo)</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.IdCurso)</td>
-                <td>@Html.DisplayFor(modelItem => item.IdInstrutor)</td>
-                <td>@item.DtInicio.ToString("dd/MM/yyyy")</td>
-                <td>@Html.DisplayFor(modelItem => item.Localizacao)</td>
-                <td>@Html.DisplayFor(modelItem => item.FgAtivo)</td>
-                <td>
-                    
-                    <a asp-action="Editar" asp-route-id="@item.IdCurso" asp-route-dtInicio="@item.DtInicio">Editar</a> |
-                    <a asp-controller="Matricula" asp-action="Matricular" asp-route-idCurso="@item.IdCurso" asp-route-dtInicio="@item.DtInicio">Matricular Aluno</a> |
-                    <a asp-controller="Matricula" asp-action="GetAlunos" asp-route-idCurso="@item.IdCurso" asp-route-dtCurso="@item.DtInicio">Todos os Alunos</a> |
-                    <a asp-action="Remover" asp-route-id="@item.IdCurso" asp-route-dtInicio="@item.DtInicio">Remover</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                            <a asp-action="Editar" class="btn btn-info" asp-route-id="@item.IdCurso" asp-route-dta="@item.DtInicio">Editar</a>
+                            <a asp-controller="Matricula" class="btn btn-success" asp-action="Matricular" asp-route-idCurso="@item.IdCurso" asp-route-dtInicio="@item.DtInicio">Matricular Aluno</a> 
+                            <a asp-controller="Matricula" class="btn btn-success"  asp-action="GetAlunos" asp-route-idCurso="@item.IdCurso" asp-route-dtCurso="@item.DtInicio">Todos os Alunos</a> 
+                            <a asp-action="Remover" class="btn btn-danger" asp-route-id="@item.IdCurso" asp-route-dtInicio="@item.DtInicio">Remover</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

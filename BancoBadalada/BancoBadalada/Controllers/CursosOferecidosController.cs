@@ -42,25 +42,18 @@ namespace BancoBadalada.Controllers
         }
 
         [HttpGet]
-        public IActionResult Editar(string id, string dtInicio)
+        public IActionResult Editar(string id, string dta)
         {
-            DateTime data = DateTime.Parse(dtInicio);
-            TbCursosOferecidos curso = _service.Find(new TbCursosOferecidos() { IdCurso = id, DtInicio = data });
-            ViewBag.Empregados = _serviceEmpregados.FindAll();
-            return View(curso);
+            ViewBag.empregados = _serviceEmpregados.FindAll();
+            DateTime data = DateTime.Parse(dta);
+            TbCursosOferecidos cursoOf = _service.Find(new TbCursosOferecidos { IdCurso = id, DtInicio = data });
+            return View(cursoOf);
         }
 
         [HttpPost]
-        public IActionResult Editar(TbCursosOferecidos curso, string id, string dtVelha)
+        public IActionResult Editar(TbCursosOferecidos cursoOf)
         {
-            if (curso.DtInicio == DateTime.Parse("01-01-0001"))
-            {
-                curso.DtInicio = DateTime.Parse(dtVelha);
-            }
-            DateTime data = DateTime.Parse(dtVelha);
-            TbCursosOferecidos cursoVelho = _service.Find(new TbCursosOferecidos { IdCurso = id, DtInicio = data });
-            _service.Delete(cursoVelho);
-            _service.Create(curso);
+            _service.Update(cursoOf);
             return RedirectToAction("Index");
         }
 

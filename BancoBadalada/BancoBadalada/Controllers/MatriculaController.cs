@@ -20,15 +20,17 @@ namespace BancoBadalada.Controllers
             _service = service;
             _serviceEmpregado = serviceEmpregado;
         }
-        public IActionResult Index(int id,string? dtCurso, string? idCurso)
+        public IActionResult Index(int idEmpregado,string? dtCurso, string? idCurso)
         {
             ViewBag.Nomes = _serviceEmpregado.FindAll();
+
             if (dtCurso == null)
             {
-            return View(_service.FindAll(id));
+            return View(_service.FindAll(idEmpregado));
             }
             return View(_service.GetAlunos(idCurso, dtCurso));
         }
+
         public IActionResult GetAlunos(string idCurso, string dtCurso)
         {
             return RedirectToAction("Index", new { idCurso = idCurso, dtCurso  = dtCurso, id = 0});

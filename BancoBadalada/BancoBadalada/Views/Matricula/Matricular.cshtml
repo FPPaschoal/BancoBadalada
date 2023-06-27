@@ -14,10 +14,11 @@
                 <option  value="@p.IdEmpregado">@p.IdEmpregado | @p.NmEmpregado</option>
             }
         </select>
+        <br />
         <input type="hidden" asp-for="IdCurso" value="@Model.IdCurso" />
         <input type="hidden" asp-for="DtInicio" value="@Model.DtInicio" />
         <input type="submit" class="btn btn-primary" value="Matricular" />
        
-        <a class="btn btn-secondary" asp-asp-controller="CursosOferecidos" asp-action="Index">Voltar</a>
+        <a class="btn btn-secondary" asp-controller="CursosOferecidos" asp-action="Index">Voltar</a>
     </div>
 </form>

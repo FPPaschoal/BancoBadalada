@@ -4,44 +4,49 @@
     var Empregados = ViewBag.Nomes;
     var nome = "";
 }
+<div class="text-center">
+    <h1>Matriculas</h1>
+</div>
 
-<h1>Matriculas</h1>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.IdParticipante)</th>
-            <th>Nome</th>
-            <th>@Html.DisplayNameFor(model => model.IdCurso)</th>
-            <th>@Html.DisplayNameFor(model => model.DtInicio)</th>
-            <th>@Html.DisplayNameFor(model => model.Avaliacao)</th>
-            <th>@Html.DisplayNameFor(model => model.FgAtivo)</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.IdParticipante)</td>
-                @foreach (var e in Empregados)
+<div class="row justify-content-center">
+    <div class="col-auto">
+        <table class="table table-striped table-bordered table-hover dt-responsive nowrap">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.IdParticipante)</th>
+                    <th>Nome</th>
+                    <th>@Html.DisplayNameFor(model => model.IdCurso)</th>
+                    <th>@Html.DisplayNameFor(model => model.DtInicio)</th>
+                    <th>@Html.DisplayNameFor(model => model.Avaliacao)</th>
+                    <th>@Html.DisplayNameFor(model => model.FgAtivo)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
                 {
-                    if (e.IdEmpregado == item.IdParticipante)
-                    {
-                        nome = e.NmEmpregado;
-                    }
+                    
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.IdParticipante)</td>
+                        @foreach (var e in Empregados)
+                        {
+                            if (e.IdEmpregado == item.IdParticipante)
+                            {
+                                nome = e.NmEmpregado;
+                            }
+                        }
+                        <td>@nome</td>
+                        <td>@Html.DisplayFor(modelItem => item.IdCurso)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DtInicio)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Avaliacao)</td>
+                        <td>@Html.DisplayFor(modelItem => item.FgAtivo)</td>
+                        <td>
+                            <a asp-action="Editar" class="btn btn-info" asp-route-idCurso="@item.IdCurso" asp-route-dtCurso="@item.DtInicio" asp-route-idParticipante="@item.IdParticipante">Editar</a>
+                            <a asp-action="Remover" class="btn btn-danger" asp-route-idCurso="@item.IdCurso" asp-route-dtCurso="@item.DtInicio" asp-route-idParticipante="@item.IdParticipante">Desmatricular</a>
+                        </td>
+                    </tr>
                 }
-                <td>@nome</td>
-                <td>@Html.DisplayFor(modelItem => item.IdCurso)</td>
-                <td>@Html.DisplayFor(modelItem => item.DtInicio)</td>
-                <td>@Html.DisplayFor(modelItem => item.Avaliacao)</td>
-                <td>@Html.DisplayFor(modelItem => item.FgAtivo)</td>
-                <td>
-                    <a asp-action="Editar" asp-route-idCurso="@item.IdCurso" asp-route-dtCurso="@item.DtInicio" asp-route-idParticipante="@item.IdParticipante">Editar</a> |
-                    <a asp-action="Remover" asp-route-idCurso="@item.IdCurso" asp-route-dtCurso="@item.DtInicio" asp-route-idParticipante="@item.IdParticipante">Desmatricular</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+            </tbody>
+        </table>
+    </div>
+</div>

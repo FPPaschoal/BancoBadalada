@@ -1,6 +1,7 @@
 ﻿using BancoBadalada.Models;
 using BancoBadalada.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BancoBadalada.Controllers
 {
@@ -82,6 +83,48 @@ namespace BancoBadalada.Controllers
             {
                 throw;
             }
+        }
+
+
+        [HttpGet]
+        public IActionResult Editar(int id)
+        {
+            TbDepartamento dpto = _service.Find(new TbDepartamento { IdDepartamento = id });
+
+            return View(dpto);
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public IActionResult Editar(TbDepartamento dpto)
+        {
+            _service.Update(dpto);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult Remover(int id)
+        {
+            TbDepartamento dpto = _service.Find(new TbDepartamento { IdDepartamento = id });
+            return View(dpto);
+        }
+
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public IActionResult Remover(TbDepartamento dpto)
+        {
+            try
+            {
+                _service.Delete(dpto);
+                return Json(new { success = true, successMessage = "Departamento removido com sucesso!" });
+            }
+            catch (DbUpdateException)
+            {
+
+                return Json(new { success = false, errorMessage = "Impossível excluir o departamento enquanto tem funcionarios nele" });
+            }
+
         }
     }
 }
