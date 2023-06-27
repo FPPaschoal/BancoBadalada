@@ -8,6 +8,10 @@ namespace BancoBadalada.Controllers
 {
     public class MatriculaController : Controller
     {
+        public void testeMergeFelipe()
+        {
+
+        }
         private readonly IDBContextMatricula _service;
         private readonly IDBContextEmpregado _serviceEmpregado;
 
@@ -16,9 +20,18 @@ namespace BancoBadalada.Controllers
             _service = service;
             _serviceEmpregado = serviceEmpregado;
         }
-        public IActionResult Index(int id)
+        public IActionResult Index(int id,string? dtCurso, string? idCurso)
         {
+            ViewBag.Nomes = _serviceEmpregado.FindAll();
+            if (dtCurso == null)
+            {
             return View(_service.FindAll(id));
+            }
+            return View(_service.GetAlunos(idCurso, dtCurso));
+        }
+        public IActionResult GetAlunos(string idCurso, string dtCurso)
+        {
+            return RedirectToAction("Index", new { idCurso = idCurso, dtCurso  = dtCurso, id = 0});
         }
 
         public IActionResult Matricular(string idCurso,string dtInicio)
@@ -36,5 +49,37 @@ namespace BancoBadalada.Controllers
             _service.Create(matricula);
             return RedirectToAction("Index", new { id = matricula.IdParticipante });
         }
+
+
+        [HttpGet]
+        public IActionResult Remover(string idCurso, string dtCurso, int idParticipante)
+        {
+            DateTime data = DateTime.Parse(dtCurso);
+            TbMatricula matricula = _service.Find(new TbMatricula { IdCurso = idCurso, DtInicio = data, IdParticipante = idParticipante });
+            return View(matricula);
+        }
+
+        [HttpPost]
+        public IActionResult Remover(TbMatricula matricula)
+        {
+            _service.Delete(matricula);
+            return RedirectToAction("Index", new TbMatricula { DtInicio = matricula.DtInicio, IdCurso = matricula.IdCurso });
+        }
+
+        [HttpGet]
+        public IActionResult Editar(string idCurso, string dtCurso, int idParticipante)
+        {
+            DateTime data = DateTime.Parse(dtCurso);
+            TbMatricula matricula = _service.Find(new TbMatricula { IdCurso = idCurso, DtInicio = data, IdParticipante = idParticipante });
+            return View(matricula);
+        }
+
+        [HttpPost]
+        public IActionResult Editar(TbMatricula matricula)
+        {
+            _service.Update(matricula);
+            return RedirectToAction("Index", new TbMatricula { DtInicio = matricula.DtInicio, IdCurso = matricula.IdCurso });
+        }
+
     }
 }

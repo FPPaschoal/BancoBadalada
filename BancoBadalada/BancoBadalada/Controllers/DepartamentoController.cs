@@ -17,7 +17,7 @@ namespace BancoBadalada.Controllers
 
         public IActionResult Index()
         {
-            return View(_service.FindAll());
+            return View();
         }
         public IActionResult Criar()
         {

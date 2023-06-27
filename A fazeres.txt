@@ -1,0 +1,5 @@
+Remover / Editar => Departamentos, Empregados
+
+Erro no editar Cursos oferecidos pelo método.
+Erro ao adicionar aluno no curso oferecido (Quando ele já esta matriculado)
+Erro ao remover Curso oferecido quando tem auluno

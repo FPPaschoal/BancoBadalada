@@ -1,14 +1,17 @@
 ﻿@model IEnumerable<BancoBadalada.Models.TbMatricula>
 @{
-    ViewData["Title"] = "Matriculas do Participante";
+    ViewData["Title"] = "Matriculas";
+    var Empregados = ViewBag.Nomes;
+    var nome = "";
 }
 
-<h1>Matriculas do Participante</h1>
+<h1>Matriculas</h1>
 
 <table class="table">
     <thead>
         <tr>
             <th>@Html.DisplayNameFor(model => model.IdParticipante)</th>
+            <th>Nome</th>
             <th>@Html.DisplayNameFor(model => model.IdCurso)</th>
             <th>@Html.DisplayNameFor(model => model.DtInicio)</th>
             <th>@Html.DisplayNameFor(model => model.Avaliacao)</th>
@@ -19,15 +22,24 @@
     <tbody>
         @foreach (var item in Model)
         {
+            
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.IdParticipante)</td>
+                @foreach (var e in Empregados)
+                {
+                    if (e.IdEmpregado == item.IdParticipante)
+                    {
+                        nome = e.NmEmpregado;
+                    }
+                }
+                <td>@nome</td>
                 <td>@Html.DisplayFor(modelItem => item.IdCurso)</td>
                 <td>@Html.DisplayFor(modelItem => item.DtInicio)</td>
                 <td>@Html.DisplayFor(modelItem => item.Avaliacao)</td>
                 <td>@Html.DisplayFor(modelItem => item.FgAtivo)</td>
                 <td>
-                    <a asp-action="Editar" asp-route-id="">Editar</a> |
-                    <a asp-action="Desmatricular" asp-route-id="">Desmatricular</a>
+                    <a asp-action="Editar" asp-route-idCurso="@item.IdCurso" asp-route-dtCurso="@item.DtInicio" asp-route-idParticipante="@item.IdParticipante">Editar</a> |
+                    <a asp-action="Remover" asp-route-idCurso="@item.IdCurso" asp-route-dtCurso="@item.DtInicio" asp-route-idParticipante="@item.IdParticipante">Desmatricular</a>
                 </td>
             </tr>
         }

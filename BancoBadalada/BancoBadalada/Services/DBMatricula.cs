@@ -25,7 +25,7 @@ namespace BancoBadalada.Services
 
         public TbMatricula Find(TbMatricula matricula)
         {
-            return new TbMatricula();
+            return _academicoContext.TbMatriculas.First(x => x.IdCurso == matricula.IdCurso && x.IdParticipante == matricula.IdParticipante && x.DtInicio == matricula.DtInicio);
         }
 
         public ICollection<TbMatricula> FindAll()
@@ -36,6 +36,13 @@ namespace BancoBadalada.Services
         {
             return _academicoContext.TbMatriculas.Where(x => x.IdParticipante == id).ToList();
         }
+
+        public ICollection<TbMatricula>GetAlunos(string idCurso, string dtCurso)
+        {
+            DateTime data = DateTime.Parse(dtCurso);
+            return _academicoContext.TbMatriculas.Where(x => x.IdCurso == idCurso && x.DtInicio == data).ToList();
+        }
+
         public void Update(TbMatricula services)
         {
             _academicoContext.TbMatriculas.Update(services);
