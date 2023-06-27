@@ -26,8 +26,10 @@ namespace BancoBadalada.Controllers
 
             if (dtCurso == null)
             {
+            //Passa todos as matriculas de um determinado empregado
             return View(_service.FindAll(idEmpregado));
             }
+            //Passa todos as matriculas de um determinado curso
             return View(_service.GetAlunos(idCurso, dtCurso));
         }
 
