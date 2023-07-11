@@ -1,6 +1,7 @@
 ﻿using BancoBadalada.Models;
+using BancoBadalada.Services.Interfaces;
 
-namespace BancoBadalada.Services
+namespace BancoBadalada.Services.Entity
 {
     public class DBEmpregado : IDBContextEmpregado
     {
@@ -36,7 +37,7 @@ namespace BancoBadalada.Services
         public ICollection<TbEmpregado> FindAll(int id)
         {
             return _academicoContext.TbEmpregados.Where(empregado => empregado.IdDepartamento == id).ToList();
-        } 
+        }
         public void Update(TbEmpregado services)
         {
             _academicoContext.TbEmpregados.Update(services);

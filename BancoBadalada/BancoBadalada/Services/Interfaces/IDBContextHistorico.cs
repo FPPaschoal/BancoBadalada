@@ -1,7 +1,7 @@
 ﻿using BancoBadalada.Models;
 
 
-namespace BancoBadalada.Services
+namespace BancoBadalada.Services.Interfaces
 {
     public interface IDBContextHistorico : IServices<TbHistorico>
     {

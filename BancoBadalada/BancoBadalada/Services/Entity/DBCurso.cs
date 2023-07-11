@@ -1,8 +1,9 @@
 ﻿using BancoBadalada.Models;
+using BancoBadalada.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
-namespace BancoBadalada.Services
+namespace BancoBadalada.Services.Entity
 {
     public class DBCurso : IDBContextCurso
     {

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices.JavaScript;
 using BancoBadalada.Models;
-using BancoBadalada.Services;
+using BancoBadalada.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

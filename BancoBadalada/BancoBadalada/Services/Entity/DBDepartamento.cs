@@ -1,7 +1,8 @@
 ﻿using BancoBadalada.Models;
+using BancoBadalada.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace BancoBadalada.Services
+namespace BancoBadalada.Services.Entity
 {
     public class DBDepartamento : IDBContextDepartamento
     {

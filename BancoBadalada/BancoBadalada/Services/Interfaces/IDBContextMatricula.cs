@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Internal;
 
-namespace BancoBadalada.Services
+namespace BancoBadalada.Services.Interfaces
 {
     public interface IDBContextMatricula : IServices<TbMatricula>
     {

@@ -1,6 +1,7 @@
 ﻿using BancoBadalada.Models;
+using BancoBadalada.Services.Interfaces;
 
-namespace BancoBadalada.Services
+namespace BancoBadalada.Services.Entity
 {
     public class DBMatricula : IDBContextMatricula
     {
@@ -32,12 +33,12 @@ namespace BancoBadalada.Services
         {
             return _academicoContext.TbMatriculas.ToList();
         }
-        public ICollection<TbMatricula>FindAll(int id)
+        public ICollection<TbMatricula> FindAll(int id)
         {
             return _academicoContext.TbMatriculas.Where(x => x.IdParticipante == id).ToList();
         }
 
-        public ICollection<TbMatricula>GetAlunos(string idCurso, string dtCurso)
+        public ICollection<TbMatricula> GetAlunos(string idCurso, string dtCurso)
         {
             DateTime data = DateTime.Parse(dtCurso);
             return _academicoContext.TbMatriculas.Where(x => x.IdCurso == idCurso && x.DtInicio == data).ToList();

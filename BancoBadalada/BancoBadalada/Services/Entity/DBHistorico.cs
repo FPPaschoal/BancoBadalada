@@ -1,6 +1,7 @@
 ﻿using BancoBadalada.Models;
+using BancoBadalada.Services.Interfaces;
 
-namespace BancoBadalada.Services
+namespace BancoBadalada.Services.Entity
 {
     public class DBHistorico : IDBContextHistorico
     {
@@ -34,7 +35,7 @@ namespace BancoBadalada.Services
         }
         public ICollection<TbHistorico> FindAllEmp(int idEmpregado)
         {
-            return _academicoContext.TbHistoricos.Where(c=> c.IdEmpregado== idEmpregado).ToList();
+            return _academicoContext.TbHistoricos.Where(c => c.IdEmpregado == idEmpregado).ToList();
         }
         public int GetNextId()
         {

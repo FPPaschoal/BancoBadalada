@@ -1,7 +1,7 @@
 ﻿using BancoBadalada.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BancoBadalada.Services
+namespace BancoBadalada.Services.Interfaces
 {
     public interface IDBContextEmpregado : IServices<TbEmpregado>
     {
