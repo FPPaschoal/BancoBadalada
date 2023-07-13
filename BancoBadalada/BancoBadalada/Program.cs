@@ -15,7 +15,8 @@ builder.Services.AddScoped<IDBContextDepartamento, DBDepartamento>();
 builder.Services.AddScoped<IDBContextCurso, DbCursoDapper>();
 builder.Services.AddScoped<IDBContextEmpregado, DBEmpregado>();
 builder.Services.AddScoped<IDBContextHistorico , DBHistorico>();
-builder.Services.AddScoped<IDBContextCursosOferecidos , DBCursosOferecidos>();
+//builder.Services.AddScoped<IDBContextCursosOferecidos , DBCursosOferecidos>();
+builder.Services.AddScoped<IDBContextCursosOferecidos , DBCursosOferecidosDapper>();
 builder.Services.AddScoped<IDBContextMatricula , DBMatricula>();
 
 builder.Services.AddSingleton<IDbConnectionFactory , DbConnectionFactory>();

@@ -15,19 +15,42 @@ namespace BancoBadalada.Services.Dapper
             _connectionFactory = connectionFactory;
         }
 
-        public void Create(TbCurso services)
+        public void Create(TbCurso curso)
         {
-            throw new NotImplementedException();
+            using var connection = _connectionFactory.CreateConnection();
+
+            string query = @"   INSERT INTO tb_cursos(id_curso,ds_curso,categoria,duracao)
+                                VALUES (@IdCurso, @DsCurso, @Categoria, @Duracao)";
+
+            connection.Execute(query, curso);
         }
 
-        public void Delete(TbCurso services)
+        public void Delete(TbCurso curso)
         {
-            throw new NotImplementedException();
+            using var connection = _connectionFactory.CreateConnection();
+
+            string query = "DELETE FROM tb_cursos WHERE id_curso = @IdCurso";
+
+            connection.Execute(query, new { IdCurso = curso.IdCurso });
         }
 
-        public TbCurso Find(TbCurso services)
+        public TbCurso Find(TbCurso curso)
         {
-            throw new NotImplementedException();
+            using var connection = _connectionFactory.CreateConnection();
+
+            string query = @"
+               SELECT
+                    id_curso as IdCurso,
+                    ds_curso as DsCurso,
+                    categoria as Categoria,
+                    duracao as Duracao,
+                    fg_ativo as FgAtivo
+                FROM tb_cursos as TbCurso
+                WHERE id_curso = @IdCurso
+                ";
+
+            var resultado = connection.Query<TbCurso>(query, new {IdCurso = curso.IdCurso});
+            return resultado.FirstOrDefault();
         }
 
         public ICollection<TbCurso> FindAll()
@@ -35,46 +58,17 @@ namespace BancoBadalada.Services.Dapper
             using var connection = _connectionFactory.CreateConnection();
 
             string query = @"
-               SELECT 
-                    TbCurso.id_curso as IdCurso,
+               SELECT
+                    id_curso as IdCurso,
                     ds_curso as DsCurso,
                     categoria as Categoria,
                     duracao as Duracao,
-                    TbCurso.fg_ativo as FgAtivo,
-
-
-                    TbCursosOferecidos.id_curso as IdCurso,
-                    dt_inicio as DtInicio,
-                    id_instrutor as IdInstrutor,
-                    localizacao as Localizacao,
-                    TbCursosOferecidos.fg_ativo as FgAtivo
+                    fg_ativo as FgAtivo
                 FROM tb_cursos as TbCurso
-                INNER JOIN tb_cursos_oferecidos TbCursosOferecidos ON (TbCurso.id_curso = TbCursosOferecidos.id_curso)
                 ";
-            var cursos = new List<TbCurso>();
 
-            TbCurso mapeamento(TbCurso curso,TbCursosOferecidos cursoOferecido)
-            {
-                var cursoExistente = cursos.FirstOrDefault(c => c.IdCurso == curso.IdCurso);
-
-                if (cursoExistente is null)
-                {
-                    cursoExistente = curso;
-                    cursoExistente.TbCursosOferecidos = new List<TbCursosOferecidos>();
-                    cursos.Add(cursoExistente);
-                }
-
-                cursoExistente.TbCursosOferecidos.Add(cursoOferecido);
-
-                return cursoExistente;
-            };
-            var resultado = connection.Query<TbCurso, TbCursosOferecidos, TbCurso>(
-                sql: query,
-                map: mapeamento,
-                splitOn: "IdCurso,IdCurso"
-                );
-
-            return resultado.ToList();
+            var resultado = connection.Query<TbCurso>(query).ToList();
+            return resultado;
         }
 
         public int GetNextId()
@@ -82,9 +76,15 @@ namespace BancoBadalada.Services.Dapper
             throw new NotImplementedException();
         }
 
-        public void Update(TbCurso services)
+        public void Update(TbCurso curso)
         {
-            throw new NotImplementedException();
+            var connection = _connectionFactory.CreateConnection();
+
+            string query = @"   UPDATE tb_cursos
+                                SET ds_curso = @DsCurso, categoria = @Categoria, duracao = @Duracao, fg_ativo = @FgAtivo
+                                WHERE id_curso = @IdCurso";
+
+            connection.Execute(query, curso);
         }
     }
 }

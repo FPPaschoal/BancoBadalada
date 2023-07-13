@@ -54,7 +54,7 @@ namespace BancoBadalada.Controllers
                 _service.Delete(curso);
                 return Json(new { success = true, successMessage = "Curso removido com sucesso!" });
             }
-            catch (DbUpdateException)
+            catch
             {
 
                 return Json(new { success = false, errorMessage = "Impossível excluir o curso enquanto ele está sendo oferecido. Remova o curso dos cursos oferecidos." });
