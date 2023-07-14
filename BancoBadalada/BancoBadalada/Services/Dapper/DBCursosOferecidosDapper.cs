@@ -16,7 +16,14 @@ namespace BancoBadalada.Services.Dapper
 
         public void Create(TbCursosOferecidos services)
         {
-            throw new NotImplementedException();
+            var connection = _connection.CreateConnection();
+
+            string query = @"INSERT INTO tb_cursos_oferecidos(id_curso,dt_inicio,id_instrutor,localizacao)
+                             VALUES 
+                             (@IdCurso, @DtInicio, @IdInstrutor, @Localizacao)";
+
+            connection.Execute(query, services);
+
         }
 
         public void Delete(TbCursosOferecidos cursosOferecidos)

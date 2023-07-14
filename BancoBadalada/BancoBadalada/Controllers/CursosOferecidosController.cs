@@ -69,8 +69,17 @@ namespace BancoBadalada.Controllers
         [HttpPost]
         public IActionResult Remover(TbCursosOferecidos curso)
         {
-            _service.Delete(curso);
-            return RedirectToAction("Index");
+            try
+            {
+                _service.Delete(curso);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+
+                return Json(new { success = false, errorMessage = "Impossível excluir o curso enquanto ele está sendo oferecido. Remova o curso dos cursos oferecidos." });
+            }
+            
         }
     }
 }
