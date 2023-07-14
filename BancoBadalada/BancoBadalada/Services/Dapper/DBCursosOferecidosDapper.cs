@@ -19,9 +19,13 @@ namespace BancoBadalada.Services.Dapper
             throw new NotImplementedException();
         }
 
-        public void Delete(TbCursosOferecidos services)
+        public void Delete(TbCursosOferecidos cursosOferecidos)
         {
-            throw new NotImplementedException();
+            var connection = _connection.CreateConnection();
+
+            string query = @"DELETE FROM tb_cursos_oferecidos WHERE id_curso = @IdCurso AND dt_inicio = @DtInicio";
+
+            connection.Execute(query, cursosOferecidos);
         }
 
         public TbCursosOferecidos Find(TbCursosOferecidos cursoOferecido)
